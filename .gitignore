@@ -1,0 +1,25 @@
+# Compiled files and build artifacts
+/target/
+**/*.rs.bk
+Cargo.lock
+**/*.jsonbkp
+# Generated files
+/output/
+*.json
+!credentials.json
+!credentials-example.json
+!Cargo.toml
+
+# Authentication tokens
+otoken_*.json
+itoken_*.json
+
+# IDOR vulnerability reports
+idor_vulnerability_*.json
+
+# Editor and OS specific files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo

@@ -1,0 +1,14 @@
+[package]
+name = "idorbuster"  # Change from "http-parser" to "idorbuster"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A tool that detects IDOR vulnerabilities through automated request comparison"
+
+[dependencies]
+clap = { version = "4.4", features = ["derive"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+reqwest = { version = "0.11", features = ["json"] }
+tokio = { version = "1", features = ["full"] }
+colored = "2.0"
