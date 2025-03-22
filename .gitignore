@@ -26,3 +26,4 @@ idor_vulnerability_*.json
 build.sh
 build.sh
 releases/
+/release/
