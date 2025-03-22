@@ -20,7 +20,9 @@ pub struct AuthToken {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct LoginCredentials {
-    pub username: String,
+    // pub credentials: String,
+    pub identifier: String,
+    pub identifier_field: String,
     pub password: String,
     #[serde(default)]
     pub device_id: Option<String>,
@@ -99,12 +101,25 @@ pub fn perform_login(
 
         // Create login request body with device_id
         let mut login_body = HashMap::new();
-        login_body.insert("email", credentials.username);
-        login_body.insert("password", credentials.password);
+        login_body.insert(
+            credentials.identifier_field.clone(),
+            credentials.identifier.clone(),
+        );
+        login_body.insert(
+            credentials.identifier_field.clone(),
+            credentials.identifier.clone(),
+        );
+        login_body.insert("password".to_string(), credentials.password.clone());
 
         if let Some(device_id) = &credentials.device_id {
-            login_body.insert("device_id", device_id.clone());
+            login_body.insert("device_id".to_string(), device_id.clone());
         }
+        // login_body.insert("email", credentials.credentials);
+        // login_body.insert("password", credentials.password);
+
+        // if let Some(device_id) = &credentials.device_id {
+        // login_body.insert("device_id", device_id.clone());
+        // }
         println!(
             "Sending login request to: {}{}",
             credentials.host, credentials.endpoint
