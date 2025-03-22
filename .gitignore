@@ -25,3 +25,4 @@ idor_vulnerability_*.json
 *.swo
 build.sh
 build.sh
+releases/
